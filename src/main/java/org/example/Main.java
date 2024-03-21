@@ -18,7 +18,7 @@ public class Main {
 
     @GetMapping("/greet")
     public GreetResponse greet(@RequestParam(value = "name", required = false) String name){
-        String greetMessage = name.isBlank() ? "Salem " : "Salem " + name;
+        String greetMessage = name == null || name.isBlank() ? "Salem " : "Salem " + name;
         // introduced new local variable
         GreetResponse response = new GreetResponse(
 //                "Salem",
