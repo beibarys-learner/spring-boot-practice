@@ -21,13 +21,13 @@ public class Main {
         GreetResponse response = new GreetResponse(
                 "Salem",
                 List.of("Java", "Python", "Javascript"),
-                new Person("James Gosling ")
+                new Person("James Gosling ", 68, 50_000_000.0)
         );
         return response;
     }
 
     // add a record
-    record Person(String name){
+    record Person(String name, int age, double savings){
     }
     record GreetResponse(String greet, List<String> freqProgLang, Person person){}
 }
