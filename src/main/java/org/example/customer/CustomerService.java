@@ -1,5 +1,6 @@
 package org.example.customer;
 
+import org.example.exception.ResourceNotFound;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class CustomerService {
 
     public Customer getCustomer(Integer id){
         return customerDAO.selectAllCustomersById(id).
-                orElseThrow(() -> new IllegalArgumentException(
+                orElseThrow(() -> new ResourceNotFound(
                                 "customer with id [%s} not found".formatted(id)
                         ));
     }
