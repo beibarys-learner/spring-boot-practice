@@ -16,21 +16,13 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 
-    @GetMapping("/greet")
-    public GreetResponse greet(@RequestParam(value = "name", required = false) String name){
-        String greetMessage = name == null || name.isBlank() ? "Salem " : "Salem " + name;
-        // introduced new local variable
-        GreetResponse response = new GreetResponse(
-//                "Salem",
-                greetMessage,
-                List.of("Java", "Python", "Javascript"),
-                new Person("James Gosling ", 68, 50_000_000.0)
-        );
-        return response;
+    class Customer{
+        private Integer id;
+        private String name;
+        private String email;
+        private Integer age;
+
+
     }
 
-    // add a record
-    record Person(String name, int age, double savings){
-    }
-    record GreetResponse(String greet, List<String> freqProgLang, Person person){}
 }
