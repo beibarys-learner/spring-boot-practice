@@ -13,4 +13,11 @@ public class CustomerService {
     public List<Customer> getAllCustomers(){
         return customerDAO.selectAllCustomers();
     }
+
+    public Customer getCustomer(Integer id){
+        return customerDAO.selectAllCustomersById(id).
+                orElseThrow(() -> new IllegalArgumentException(
+                                "customer with id [%s} not found".formatted(id)
+                        ));
+    }
 }
