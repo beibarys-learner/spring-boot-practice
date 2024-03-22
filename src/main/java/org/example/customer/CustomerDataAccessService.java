@@ -1,9 +1,12 @@
 package org.example.customer;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class CustomerDataAccessService implements CustomerDAO {
     private static List<Customer> customers;
 
@@ -20,7 +23,6 @@ public class CustomerDataAccessService implements CustomerDAO {
         customers.add(guido);
 
     }
-
 
     @Override
     public List<Customer> selectAllCustomers() {

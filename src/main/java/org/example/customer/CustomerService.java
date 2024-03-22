@@ -1,7 +1,11 @@
 package org.example.customer;
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class CustomerService {
 
     private final CustomerDAO customerDAO;
