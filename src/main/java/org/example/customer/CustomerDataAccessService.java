@@ -2,6 +2,7 @@ package org.example.customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class CustomerDataAccessService implements CustomerDAO {
     private static List<Customer> customers;
@@ -24,5 +25,10 @@ public class CustomerDataAccessService implements CustomerDAO {
     @Override
     public List<Customer> selectAllCustomers() {
         return customers;
+    }
+
+    @Override
+    public Optional<Customer> selectAllCustomersById() {
+        return Optional.empty();
     }
 }
