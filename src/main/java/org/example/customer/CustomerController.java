@@ -2,6 +2,7 @@ package org.example.customer;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,5 +26,10 @@ public class CustomerController {
     public Customer getCustomers(
             @PathVariable("customerId") Integer customerId){
         return customerService.getCustomer(customerId);
+    }
+
+    @PostMapping("api/v1/customers")
+    public void registerCustomer(CustomerRegistrationRequest request){
+        customerService.addCustomer(request);
     }
 }
