@@ -4,9 +4,16 @@ import java.util.List;
 import java.util.Optional;
 
 public class CustomerJPADataAccessService implements CustomerDAO{
+
+    private final CustomerRepository customerRepository; // injecting Customer Repo
+
+    public CustomerJPADataAccessService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
     @Override
     public List<Customer> selectAllCustomers() {
-        return null;
+        return customerRepository.findAll();
     }
 
     @Override
