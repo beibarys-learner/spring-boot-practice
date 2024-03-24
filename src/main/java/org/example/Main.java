@@ -28,6 +28,7 @@ public class Main {
     @Bean
     CommandLineRunner runner(CustomerRepository customerRepository){
 
+
 //        customers.add(guido);
 
         return args -> {
