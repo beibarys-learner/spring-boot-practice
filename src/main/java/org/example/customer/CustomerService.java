@@ -45,6 +45,5 @@ public class CustomerService {
                         customerRegistrationRequest.age()
                 );
         customerDAO.insertCustomer(customer);
-        );
     }
 }
