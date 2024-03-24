@@ -7,4 +7,5 @@ public interface CustomerDAO {
 
     List<Customer> selectAllCustomers();
     Optional<Customer> selectAllCustomersById(Integer id);
+    void insertCustomer(Customer customer);
 }

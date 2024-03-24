@@ -23,4 +23,9 @@ public class CustomerJPADataAccessService implements CustomerDAO{
     public Optional<Customer> selectAllCustomersById(Integer id) {
         return customerRepository.findById(id);
     }
+
+    @Override
+    public void insertCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
 }

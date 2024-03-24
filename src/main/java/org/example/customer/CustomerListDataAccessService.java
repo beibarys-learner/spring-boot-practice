@@ -36,4 +36,9 @@ public class CustomerListDataAccessService implements CustomerDAO {
                 .findFirst();
 
     }
+
+    @Override
+    public void insertCustomer(Customer customer) {
+        customers.add(customer);
+    }
 }
