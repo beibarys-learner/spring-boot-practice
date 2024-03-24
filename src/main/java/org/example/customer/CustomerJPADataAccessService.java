@@ -1,8 +1,11 @@
 package org.example.customer;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 
+@Repository("jpa")
 public class CustomerJPADataAccessService implements CustomerDAO{
 
     private final CustomerRepository customerRepository; // injecting Customer Repo
