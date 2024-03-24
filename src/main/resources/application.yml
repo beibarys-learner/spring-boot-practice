@@ -6,16 +6,17 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5332/customer
-    user: user
+    user: code
     password: password
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+        hibernate.dialect: org.hibernate.dialect.PostgresSQLDialect
     show-sql: false
+
   main:
     web-application-type: servlet
 
