@@ -26,4 +26,9 @@ public class CustomerService {
                                 "customer with id [%s} not found".formatted(id)
                         ));
     }
+
+    public void addCustomer(CustomerRegistrationRequest customerRegistrationRequest){
+        // проверка почты
+
+    }
 }
