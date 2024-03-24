@@ -1,8 +1,5 @@
 package org.example;
 
-import org.example.customer.CustomerController;
-import org.example.customer.CustomerDataAccessService;
-import org.example.customer.CustomerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
