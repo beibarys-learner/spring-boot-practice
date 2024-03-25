@@ -64,8 +64,7 @@ public class CustomerService {
         boolean changes = false;
 
         if(updateRequest.name() != null && !updateRequest.name.equals(customer.getName())){
-            customer.setName(updateRequest.na
-                    me());
+            customer.setName(updateRequest.name());
             changes = true;
         }
 
