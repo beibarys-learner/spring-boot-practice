@@ -5,4 +5,4 @@ public record CustomerUpdateRequest {
     String email,
     Integer age
 } {
-}
+        }

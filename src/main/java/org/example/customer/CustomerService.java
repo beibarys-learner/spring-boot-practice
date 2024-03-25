@@ -1,5 +1,6 @@
 package org.example.customer;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.example.exception.DuplicateResourceException;
 import org.example.exception.ResourceNotFound;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,6 +56,37 @@ public class CustomerService {
         }
     }
 
-    public void updateCustomer() {
+    public void updateCustomer(
+            Integer customerId,
+            CustomerUpdateRequest updateRequest
+    ) {
+        Customer customer = getCustomer(customerId);
+        boolean changes = false;
+
+        if(updateRequest.name() != null && !updateRequest.name.equals(customer.getName())){
+            customer.setName(updateRequest.na
+                    me());
+            changes = true;
+        }
+
+        if(updateRequest.age() != null && !updateRequest.age.equals(customer.getAge())){
+            customer.setAge(updateRequest.age());
+            changes = true;
+        }
+
+        if(updateRequest.email() != null && !updateRequest.email.equals(customer.getEmail())){
+            if(customerDAO.existsPersonWithEmail(updateRequest.email())){
+                throw new DuplicateResourceException(
+                        "email is already taken"
+                );
+            }
+        }
+        customer.setEmail(updateRequest.email());
+        changes = true;
     }
+
+    if (!changes) {
+        throw new RequestValidationException("no data changes found");
+    }
+    customerDAO.updateCustomer(customer);
 }
