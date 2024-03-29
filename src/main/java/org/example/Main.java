@@ -39,9 +39,12 @@ public class Main {
 
             Name name = faker.name();
 
+            String firstName = name.firstName();
+            String lastName = name.lastName();
+
             Customer customer = new Customer(
-                    name.fullName(),
-                    name.firstName().toLowerCase() + "." + name.lastName().toLowerCase() +"@proton.com",
+                    firstName + " " + lastName,
+                    firstName.toLowerCase() + "." + lastName.toLowerCase() +"@proton.com",
                     random.nextInt(16, 99)
             );
 
