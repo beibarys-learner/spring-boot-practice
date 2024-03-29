@@ -28,20 +28,24 @@ public class Main {
     @Bean
     CommandLineRunner runner(CustomerRepository customerRepository){
 
-
 //        customers.add(guido);
 
         return args -> {
-            Customer james = new Customer("James", "java@gmail.com", 68
+            Customer james = new Customer(
+                    "James",
+                    "java@gmail.com",
+                    68
             );
 //        customers.add(james);
 
-            Customer guido = new Customer("Guido", "python@gmail.com", 67
+            Customer guido = new Customer(
+                    "Guido",
+                    "python@gmail.com",
+                    67
             );
 
             List<Customer> customers = List.of(james, guido);
-//            customerRepository.saveAll(customers);
-
+            customerRepository.saveAll(customers);
         };
     }
 }
