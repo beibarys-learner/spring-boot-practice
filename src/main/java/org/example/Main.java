@@ -37,9 +37,11 @@ public class Main {
             var faker = new Faker();
             Random random = new Random();
 
+            Name name = faker.name();
+
             Customer customer = new Customer(
-                    faker.name().fullName(),
-                    faker.internet().safeEmailAddress(),
+                    name.fullName(),
+                    name.firstName().toLowerCase() + "." + name.lastName().toLowerCase() +"@proton.com",
                     random.nextInt(16, 99)
             );
 
