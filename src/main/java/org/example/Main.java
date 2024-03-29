@@ -1,5 +1,7 @@
 package org.example;
 
+import com.github.javafaker.Faker;
+import com.github.javafaker.Name;
 import org.example.customer.Customer;
 import org.example.customer.CustomerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -8,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.util.List;
+import java.util.Random;
 
 @SpringBootApplication
 public class Main {
@@ -31,7 +34,18 @@ public class Main {
 //        customers.add(guido);
 
         return args -> {
-            Customer james = new Customer(
+            var faker = new Faker();
+            Random random = new Random();
+
+            Customer customer = new Customer(
+                    faker.name().fullName(),
+                    faker.internet().safeEmailAddress(),
+                    random.nextInt(16, 99)
+            );
+
+            customerRepository.save(customer);
+
+           /* Customer james = new Customer(
                     "James",
                     "java@gmail.com",
                     68
@@ -45,7 +59,7 @@ public class Main {
             );
 
             List<Customer> customers = List.of(james, guido);
-            customerRepository.saveAll(customers);
+            customerRepository.saveAll(customers);*/
         };
     }
 }
