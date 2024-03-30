@@ -41,7 +41,7 @@ public class Customer {
     )
     private Integer age;
 
-    public Customer() {
+    public Customer(int id, String name, String email, String age) {
     }
 
     public Customer(String name, String email, Integer age) {
@@ -50,6 +50,16 @@ public class Customer {
         this.email = email;
         this.age = age;
     }
+
+    public Customer(Long id, String name, String email, Integer age) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+    }
+
+    /*public Customer(int id, String name, String email, int age) {
+    }*/
 
     public Long getId() {
         return id;
