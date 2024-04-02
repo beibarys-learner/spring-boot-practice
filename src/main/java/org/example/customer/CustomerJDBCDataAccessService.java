@@ -30,10 +30,23 @@ public class CustomerJDBCDataAccessService implements CustomerDAO{
         return jdbcTemplate.query(sql, customerRowMapper);
     }
 
+/*    @Override
+    public Optional<Customer> selectAllCustomersById(Integer id) {
+        return Optional.empty();
+    }*/
+
 
     @Override
     public Optional<Customer> selectAllCustomersById(Integer id) {
-        return Optional.empty();
+        var sql = """
+                SELECT id, name, email, age
+                FROM customer
+                WHERE id = ?
+                """;
+
+        return jdbcTemplate.query(sql, customerRowMapper, id)
+                .stream()
+                .findFirst();
     }
 
     @Override
