@@ -58,6 +58,10 @@ public class Customer {
         this.age = age;
     }
 
+    public Customer() {
+
+    }
+
     /*public Customer(int id, String name, String email, int age) {
     }*/
 
