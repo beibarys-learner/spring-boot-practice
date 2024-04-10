@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 //@SpringBootTest
 
 // don't use for units this annotation
-public class TestcontainersTest extends AbstractTestcontainersUnitTest{
+public class TestcontainersTest extends AbstractTestcontainers{
 
     @Test
     void canStartPostgresDB(){
