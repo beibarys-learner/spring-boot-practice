@@ -1,7 +1,7 @@
 package org.example;
 
 import org.flywaydb.core.Flyway;
-import org.flywaydb.core.internal.jdbc.JdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -12,6 +12,8 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 
 import javax.sql.DataSource;
+
+import java.sql.Connection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 @Testcontainers
@@ -34,7 +36,7 @@ public abstract class AbstractTestcontainers {
             .withPassword("password");
 
     @DynamicPropertySource
-    private static void setProperties(DynamicPropertyRegistry registry) {
+    private static void registerDataSourceProperties(DynamicPropertyRegistry registry) {
         registry.add(
                 "spring.datasource.url", postgreSQLContainer::getJdbcUrl
         );
@@ -48,8 +50,8 @@ public abstract class AbstractTestcontainers {
     }
 
     protected static DataSource getDataSource() {
-        return DataSourceBuilder.create().
-                driverClassName(postgreSQLContainer.getDriverClassName())
+        return DataSourceBuilder.create()
+                .driverClassName(postgreSQLContainer.getDriverClassName())
                 .url(postgreSQLContainer.getJdbcUrl())
                 .username(postgreSQLContainer.getUsername())
                 .password(postgreSQLContainer.getPassword())
